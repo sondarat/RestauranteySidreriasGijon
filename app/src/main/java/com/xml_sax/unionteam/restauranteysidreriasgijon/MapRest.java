@@ -4,6 +4,7 @@ public enum MapRest {
     NOMBRE,
     FOTO,
     TLF,
+    CORREO,
     WEB,
     HORARIO,
     DESCRIPCION,
