@@ -15,12 +15,54 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
+        <LinearLayout
+            android:layout_width="128dp"
+            android:layout_height="80dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/Nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="Nombre:" />
+
+            <TextView
+                android:id="@+id/Email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="Email:" />
+
+            <TextView
+                android:id="@+id/Web"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="Web:" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="vertical">
         <TextView
+            android:id="@+id/Direccion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nombre"/>
+            android:padding="4dp"
+            android:text="Dirección"/>
+
+        <TextView
+            android:id="@+id/Telefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="Telefono:"/>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>
