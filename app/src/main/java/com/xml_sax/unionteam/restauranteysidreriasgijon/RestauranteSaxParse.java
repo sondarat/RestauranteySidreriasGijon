@@ -30,7 +30,7 @@ public class RestauranteSaxParse{
 
     }
 
-    public ArrayList<RestauranteSidreria> parse(){
+    public GestoraRestaurantes parse(){
         SAXParserFactory factory = SAXParserFactory.newInstance();
         try{
 
@@ -38,13 +38,12 @@ public class RestauranteSaxParse{
         SAXParser parser = factory.newSAXParser();
         XML_Handler handler = new XML_Handler();
         parser.parse(this.getInputStream(), handler);
-        //Get restaurantes de la gestora molonga
-            //  return handler.getNoticias();
+              return handler.getGestora();
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        return null;
+
     }
 
     private InputStream getInputStream(){

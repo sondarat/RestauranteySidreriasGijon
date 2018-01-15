@@ -13,4 +13,4 @@ public class GestoraRestaurantes extends ArrayList<RestauranteSidreria>{
         return nombres;
     }
 }
-}
+

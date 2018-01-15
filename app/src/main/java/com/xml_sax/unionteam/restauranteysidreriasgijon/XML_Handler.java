@@ -9,14 +9,19 @@ import java.util.ArrayList;
 
 public class XML_Handler extends DefaultHandler {
 private RestauranteSidreria restauranteActual;
+    private GestoraRestaurantes gestora;
     private StringBuilder texto;
-    private ArrayList restaurante;
+
+
+    public GestoraRestaurantes getGestora() {
+        return gestora;
+    }
 
     @Override
     public void startDocument() throws SAXException {
         super.startDocument();
 
-    restaurante= new ArrayList();
+        gestora= new GestoraRestaurantes();
     texto=new StringBuilder();
 
     }
@@ -56,6 +61,7 @@ private RestauranteSidreria restauranteActual;
             }else if(localName.equals("localizacion")){
                 restauranteActual.setCoods(text);
             }
+            gestora.add(restauranteActual);
         }
     }
 
