@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        CargarXML();
         lista = this.findViewById(R.id.listView);
+        CargarXML();
         int[] to = {R.id.imagenRestaurante,R.id.Nombre,R.id.Email,R.id.Web,R.id.Direccion,R.id.Telefono};
         adaptador = new SimpleAdapter(this,gestora,R.layout.para_listview,MapRest.claves(),to);
         adaptador.setViewBinder(new DatosViewAdapter());
@@ -32,10 +32,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void CargarXML(){
-        CargadorXML cargador = new CargadorXML();
-        cargador.setGestora(gestora);
+        CargadorXML cargador = new CargadorXML(this);
+        gestora = GestoraRestaurantes.getInstance();
         cargador.execute("http://datos.gijon.es/doc/turismo/restaurantes.xml");
     }
-
+    public void actualizarLista(){
+        adaptador.notifyDataSetChanged();
+    }
 
 }

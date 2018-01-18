@@ -7,6 +7,15 @@ import android.widget.SimpleAdapter;
 import java.util.ArrayList;
 
 public class GestoraRestaurantes extends ArrayList<RestauranteSidreria>{
+
+    public static GestoraRestaurantes instance = null;
+    protected GestoraRestaurantes(){}
+
+    public static GestoraRestaurantes getInstance(){
+        if(instance==null) instance = new GestoraRestaurantes();
+        return instance;
+    }
+
     public String[] getInfoRest(){
         int numero=this.size();
         String[] nombres=new String[numero];

@@ -19,8 +19,8 @@ public class XML_Handler extends DefaultHandler {
     @Override
     public void startDocument() throws SAXException {
         super.startDocument();
-        gestora= new GestoraRestaurantes();
-        texto=new StringBuilder();
+        gestora = GestoraRestaurantes.getInstance();
+        texto = new StringBuilder();
     }
 
     @Override

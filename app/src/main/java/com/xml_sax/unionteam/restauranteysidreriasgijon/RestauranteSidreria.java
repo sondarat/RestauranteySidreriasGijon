@@ -16,14 +16,14 @@ public class RestauranteSidreria extends HashMap<String,Object>{
     }
     public void setTlf(String tlf){
         this.put(MapRest.TLF.toString(), Uri.parse("tel:" + tlf));//v2 mas abajo
-        //this.put(MapRest.TLF, Uri.parse("tel:"+tlf));//Guarda el tlf listo para el intent
+        //this.put(MapRest.TLF.toString(), Uri.parse("tel:"+tlf));//Guarda el tlf listo para el intent
     }
     public void setCorreo(String correo){
         this.put(MapRest.CORREO.toString(), correo);//mirar para hacer el intent
     }
     public void setWeb(String web){
-        this.put(MapRest.WEB.toString(), Uri.parse(web));//v2 mas abajo
-        //this.put(MapRest.WEB, Uri.parse(web));//Guarda la web lista para el intent
+        //this.put(MapRest.WEB.toString(), Uri.parse(web));//v2 mas abajo
+        this.put(MapRest.WEB.toString(), Uri.parse(web));//Guarda la web lista para el intent
     }
     public void setHorario(String horario){
         this.put(MapRest.HORARIO.toString(), horario);
@@ -39,7 +39,7 @@ public class RestauranteSidreria extends HashMap<String,Object>{
         /*
         String[] coordenadas = coords.split(" ");
         String punto = String.format("geo:%f, %f",coordenadas[0],coordenadas[1]);
-        this.put(MapRest.COORDS, Uri.parse(punto));//Guarda la coord lista para el intent
+        this.put(MapRest.COORDS.toString(), Uri.parse(punto));//Guarda la coord lista para el intent
         */
     }
 
