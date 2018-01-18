@@ -60,7 +60,9 @@ private RestauranteSidreria restauranteActual;
                 restauranteActual.setDireccion(text);
             }else if(localName.equals("localizacion")){
                 restauranteActual.setCoods(text);
-            }
+            }else if(localName.equals("descripcion")){
+            restauranteActual.setDescripcion(text);
+        }
             gestora.add(restauranteActual);
         }
     }
