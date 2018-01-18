@@ -21,35 +21,29 @@ public class RestauranteSaxParse{
     private URL UrlRestaurantes;
 
     public RestauranteSaxParse(String urlRestaurantes) {
-
         try{
             this.UrlRestaurantes = new URL(urlRestaurantes);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public GestoraRestaurantes parse(){
         SAXParserFactory factory = SAXParserFactory.newInstance();
         try{
-
-
-        SAXParser parser = factory.newSAXParser();
-        XML_Handler handler = new XML_Handler();
-        parser.parse(this.getInputStream(), handler);
-              return handler.getGestora();
-
+            SAXParser parser = factory.newSAXParser();
+            XML_Handler handler = new XML_Handler();
+            parser.parse(this.getInputStream(), handler);
+            return handler.getGestora();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
     }
 
     private InputStream getInputStream(){
        try
        {
-        return UrlRestaurantes.openConnection().getInputStream();
+           return UrlRestaurantes.openConnection().getInputStream();
        } catch (IOException e) {
            throw new RuntimeException(e);
        }

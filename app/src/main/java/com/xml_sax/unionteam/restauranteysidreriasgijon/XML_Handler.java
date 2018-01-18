@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 
 public class XML_Handler extends DefaultHandler {
-private RestauranteSidreria restauranteActual;
+    private RestauranteSidreria restauranteActual;
     private GestoraRestaurantes gestora;
     private StringBuilder texto;
 
@@ -20,10 +20,8 @@ private RestauranteSidreria restauranteActual;
     @Override
     public void startDocument() throws SAXException {
         super.startDocument();
-
         gestora= new GestoraRestaurantes();
-    texto=new StringBuilder();
-
+        texto=new StringBuilder();
     }
 
     @Override
@@ -35,8 +33,8 @@ private RestauranteSidreria restauranteActual;
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
         super.startElement(uri, localName, qName, attributes);
         if (localName.equals("directorio")) {
-        restauranteActual = new RestauranteSidreria();
-    }
+            restauranteActual = new RestauranteSidreria();
+        }
     }
 
     @Override
