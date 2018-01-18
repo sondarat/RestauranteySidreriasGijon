@@ -12,10 +12,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-/**
- * Created by DamLocal on 15/01/2018.
- */
-
 public class RestauranteSaxParse{
 
     private URL UrlRestaurantes;
