@@ -14,16 +14,8 @@ public class CargadorXML extends AsyncTask<String,Integer,Boolean> {
 
     @Override
     protected void onPostExecute(Boolean aBoolean) {
-        for (int i = 0; i < gestora.size(); i++) {
-            gestora.get(i).get(MapRest.NOMBRE.toString());
-            gestora.get(i).get(MapRest.FOTO.toString());
-            gestora.get(i).get(MapRest.TLF.toString());
-            gestora.get(i).get(MapRest.CORREO.toString());
-            gestora.get(i).get(MapRest.WEB.toString());
-            gestora.get(i).get(MapRest.HORARIO.toString());
-            gestora.get(i).get(MapRest.DESCRIPCION.toString());
-            gestora.get(i).get(MapRest.DIRECCION.toString());
-            gestora.get(i).get(MapRest.COORDS.toString());
-        }
+    }
+    public void setGestora(GestoraRestaurantes gestora){
+        this.gestora=gestora;
     }
 }
