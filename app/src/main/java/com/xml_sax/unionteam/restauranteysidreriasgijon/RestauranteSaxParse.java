@@ -31,8 +31,8 @@ public class RestauranteSaxParse{
             XML_Handler handler = new XML_Handler();
             parser.parse(this.getInputStream(), handler);
             return handler.getGestora();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {GestoraRestaurantes.getInstance();
+            return GestoraRestaurantes.getInstance();
         }
     }
 

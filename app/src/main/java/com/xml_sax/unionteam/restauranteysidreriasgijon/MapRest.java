@@ -6,9 +6,9 @@ public enum MapRest {
     TLF,
     CORREO,
     WEB,
+    DIRECCION,
     HORARIO,
     DESCRIPCION,
-    DIRECCION,
     COORDS;
     public static String[] claves(){
         MapRest[] claves=MapRest.values();
