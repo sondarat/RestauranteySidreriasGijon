@@ -1,5 +1,7 @@
 package com.xml_sax.unionteam.restauranteysidreriasgijon;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -42,6 +44,22 @@ public class MainActivity extends AppCompatActivity {
     }
     public void actualizarLista(){
         adaptador.notifyDataSetChanged();
+        saltarNotificacion();
+    }
+
+    public void saltarNotificacion(){
+        NotificationManager notManager = (NotificationManager) getSystemService(this.NOTIFICATION_SERVICE);
+        int icono = android.R.drawable.stat_notify_chat;
+        CharSequence textoTitulo = "¡Atención!";
+        CharSequence textoPrincipal="Se han leido " + gestora.size() + " restaurantes y sidrerias";
+        long hora = System.currentTimeMillis();
+        Notification.Builder caracteristicas = new Notification.Builder(this)
+                .setSmallIcon(icono)
+                .setWhen(hora)
+                .setContentTitle(textoTitulo)
+                .setContentText(textoPrincipal);
+        Notification notificacion=caracteristicas.build();
+        notManager.notify(99, notificacion);
     }
 
     public void mostrarDescripcionAvanzada(View view) {
