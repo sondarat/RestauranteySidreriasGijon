@@ -1,10 +1,13 @@
 package com.xml_sax.unionteam.restauranteysidreriasgijon;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,5 +46,23 @@ public class MainActivity extends AppCompatActivity {
 
     public void mostrarDescripcionAvanzada(View view) {
 
+    }
+
+    public void LanzaIntent(View view) {
+        int idBoton=view.getId();
+        Intent intento;
+        switch (idBoton){
+            case R.id.Telefono:
+                intento = new Intent(Intent.ACTION_DIAL);
+                intento.setData(Uri.parse(((TextView)view).getText().toString()));
+                startActivity(intento);
+                break;
+            case R.id.Email:
+                intento = new Intent(Intent.ACTION_SENDTO);
+                intento.setData(Uri.parse("mailto:"+((TextView)view).getText().toString()));
+                startActivity(intento);
+                break;
+            default:break;
+        }
     }
 }

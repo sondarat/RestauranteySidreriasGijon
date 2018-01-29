@@ -15,15 +15,14 @@ public class RestauranteSidreria extends HashMap<String,Object>{
         this.put(MapRest.FOTO.toString(), foto);
     }
     public void setTlf(String tlf){
-        this.put(MapRest.TLF.toString(), tlf);//v2 mas abajo
-        //this.put(MapRest.TLF.toString(), Uri.parse("tel:"+tlf));//Guarda el tlf listo para el intent
+        this.put(MapRest.TLF.toString(), "tel:"+tlf.replace("\n",""));
     }
     public void setCorreo(String correo){
-        this.put(MapRest.CORREO.toString(), correo);//mirar para hacer el intent
+        this.put(MapRest.CORREO.toString(), correo.replace("\n",""));//mirar para hacer el intent
     }
     public void setWeb(String web){
-        this.put(MapRest.WEB.toString(), web);//v2 mas abajo
-        //this.put(MapRest.WEB.toString(), Uri.parse(web));//Guarda la web lista para el intent
+        //this.put(MapRest.WEB.toString(), web);//v2 mas abajo
+        this.put(MapRest.WEB.toString(), Uri.parse(web));//Guarda la web lista para el intent
     }
     public void setHorario(String horario){
         this.put(MapRest.HORARIO.toString(), horario);
