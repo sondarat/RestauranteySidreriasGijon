@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        lista = this.findViewById(R.id.listView);
+        lista = this.findViewById(R.id.ListView);
         CargarXML();
         int[] to = {R.id.Nombre,R.id.imagenRestaurante,R.id.Telefono,R.id.Email,R.id.Web,R.id.Direccion};
         adaptador = new SimpleAdapter(this,gestora,R.layout.para_listview,MapRest.claves(),to);
