@@ -36,6 +36,7 @@ public class RestauranteSidreria extends HashMap<String,Object>{
     }
     public void setCoods(String  coords){
         this.put(MapRest.COORDS.toString(), coords);//v2 mas abajo
+
         /*
         String[] coordenadas = coords.split(" ");
         String punto = String.format("geo:%f, %f",coordenadas[0],coordenadas[1]);
@@ -43,4 +44,14 @@ public class RestauranteSidreria extends HashMap<String,Object>{
         */
     }
 
+public String getDescrip (){
+
+   return  (String) this.get(MapRest.DESCRIPCION.toString());
+
+}
+    public String getIma (){
+
+        return  (String) this.get(MapRest.FOTO.toString());
+
+    }
 }
