@@ -2,12 +2,12 @@ package com.xml_sax.unionteam.restauranteysidreriasgijon;
 
 public enum MapRest {
     NOMBRE,
-    FOTO,
     TLF,
     CORREO,
     WEB,
     DIRECCION,
     HORARIO,
+    FOTO,
     DESCRIPCION,
     COORDS;
     public static String[] claves(){

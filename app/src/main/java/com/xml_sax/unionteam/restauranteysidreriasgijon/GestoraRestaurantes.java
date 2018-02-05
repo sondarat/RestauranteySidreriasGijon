@@ -1,5 +1,6 @@
 package com.xml_sax.unionteam.restauranteysidreriasgijon;
 
+import android.net.Uri;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SimpleAdapter;
@@ -25,5 +26,7 @@ public class GestoraRestaurantes extends ArrayList<RestauranteSidreria>{
         }
         return nombres;
     }
+    /*public Uri getCoord(String nombre){
+    }*/
 }
 

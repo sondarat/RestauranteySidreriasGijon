@@ -2,6 +2,7 @@ package com.xml_sax.unionteam.restauranteysidreriasgijon;
 
 import android.net.Uri;
 import java.util.HashMap;
+import java.util.Map;
 
 public class RestauranteSidreria extends HashMap<String,Object>{
 
@@ -18,7 +19,7 @@ public class RestauranteSidreria extends HashMap<String,Object>{
         this.put(MapRest.TLF.toString(), "tel:"+tlf.replace("\n",""));
     }
     public void setCorreo(String correo){
-        this.put(MapRest.CORREO.toString(), correo.replace("\n",""));//mirar para hacer el intent
+        this.put(MapRest.CORREO.toString(), correo.replace("\n",""));
     }
     public void setWeb(String web){
         //this.put(MapRest.WEB.toString(), web);//v2 mas abajo
@@ -34,12 +35,18 @@ public class RestauranteSidreria extends HashMap<String,Object>{
         this.put(MapRest.DIRECCION.toString(), direccion);
     }
     public void setCoods(String  coords){
-        this.put(MapRest.COORDS.toString(), coords);//v2 mas abajo
-        /*
-        String[] coordenadas = coords.split(" ");
-        String punto = String.format("geo:%f, %f",coordenadas[0],coordenadas[1]);
-        this.put(MapRest.COORDS.toString(), Uri.parse(punto));//Guarda la coord lista para el intent
-        */
+        coords = coords.replace("\n","");
+        while(coords.startsWith(" "))coords=coords.substring(1);
+        if (!coords.equalsIgnoreCase("")){
+            String[] coordenadas = coords.split(" ");
+            Uri punto = Uri.parse("geo:"+coordenadas[0]+","+coordenadas[1]+"?q=<"+coordenadas[0]+">,<"+coordenadas[1]+">"+"("+this.get(MapRest.NOMBRE.toString())+")");
+            this.put(MapRest.COORDS.toString(), punto);
+        }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        RestauranteSidreria rest = (RestauranteSidreria) o;
+        return this.get(MapRest.NOMBRE.toString()).equals(rest.get(MapRest.NOMBRE.toString()));
+    }
 }
