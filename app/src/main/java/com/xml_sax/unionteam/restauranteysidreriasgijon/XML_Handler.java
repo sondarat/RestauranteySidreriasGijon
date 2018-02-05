@@ -40,7 +40,7 @@ public class XML_Handler extends DefaultHandler {
     public void endElement(String uri, String localName, String qName) throws SAXException {
         super.endElement(uri, localName, qName);
         String text=texto.toString().replace("<p>","");
-        text = text.replace("</p>","");
+        text = text.replace("</p>","").replace("\n","").replace("</br>","");
         if(this.restauranteActual!=null){
             switch (localName) {
                 case "foto": restauranteActual.setFoto(text); break;
