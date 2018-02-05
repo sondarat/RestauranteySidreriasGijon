@@ -1,6 +1,7 @@
 package com.xml_sax.unionteam.restauranteysidreriasgijon;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.app.Dialog;
 import android.net.Uri;
@@ -11,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity{
 

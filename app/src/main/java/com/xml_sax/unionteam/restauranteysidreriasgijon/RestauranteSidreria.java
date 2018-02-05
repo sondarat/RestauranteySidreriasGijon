@@ -59,4 +59,3 @@ public String getDescrip (){
         return  (String) this.get(MapRest.FOTO.toString());
 
     }
-}
