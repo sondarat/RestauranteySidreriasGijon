@@ -49,4 +49,13 @@ public class RestauranteSidreria extends HashMap<String,Object>{
         RestauranteSidreria rest = (RestauranteSidreria) o;
         return this.get(MapRest.NOMBRE.toString()).equals(rest.get(MapRest.NOMBRE.toString()));
     }
+public String getDescrip (){
+
+   return  (String) this.get(MapRest.DESCRIPCION.toString());
+
 }
+    public String getIma (){
+
+        return  (String) this.get(MapRest.FOTO.toString());
+
+    }

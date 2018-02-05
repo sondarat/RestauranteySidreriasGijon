@@ -1,7 +1,9 @@
 package com.xml_sax.unionteam.restauranteysidreriasgijon;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.app.Dialog;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +14,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity{
 
     private ListView lista;
     private SimpleAdapter adaptador;
