@@ -26,7 +26,5 @@ public class GestoraRestaurantes extends ArrayList<RestauranteSidreria>{
         }
         return nombres;
     }
-    /*public Uri getCoord(String nombre){
-    }*/
 }
 

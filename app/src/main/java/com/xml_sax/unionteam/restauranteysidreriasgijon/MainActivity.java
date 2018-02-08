@@ -36,6 +36,16 @@ public class MainActivity extends Activity{
         adaptador = new SimpleAdapter(this,gestora,R.layout.para_listview,MapRest.claves(),to);
         adaptador.setViewBinder(new DatosViewAdapter());
         lista.setAdapter(adaptador);
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                int index = i;
+                Intent intent = new Intent(MainActivity.this, Activity_descripcion.class);
+                intent.putExtra("argumento", index);
+                startActivity(intent);
+
+            }
+        });
     }
 
     public void CargarXML(){
@@ -43,14 +53,9 @@ public class MainActivity extends Activity{
         gestora = GestoraRestaurantes.getInstance();
         cargador.execute("http://datos.gijon.es/doc/turismo/restaurantes.xml");
     }
-    public void actualizarLista(){
+    public void actualizarLista() {
         adaptador.notifyDataSetChanged();
     }
-
-    public void mostrarDescripcionAvanzada(View view) {
-
-    }
-
     public void LanzaIntent(View view) {
         int idBoton=view.getId();
         Intent intento;
