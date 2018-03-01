@@ -44,14 +44,13 @@ public class XML_Handler extends DefaultHandler {
         String text=texto.toString().replace("\n","");
         text = text.replaceAll("<.*>","");
         if(this.restauranteActual!=null){
+            String trim = text.replace("\n","").trim();
             switch (localName) {
                 case "foto": restauranteActual.setFoto(text); break;
                 case "nombre": restauranteActual.setNombre(text); break;
                 case "telefono": restauranteActual.setTlf(text); break;
-                case "correo-electronico": restauranteActual.setCorreo(text); break;
-                case "web":
-                    String web = text.trim();
-                    restauranteActual.setWeb(Html.fromHtml("<a href=\"" + web + "\">Web</a>")); break;
+                case "correo-electronico": restauranteActual.setCorreo(trim); break;
+                case "web": restauranteActual.setWeb(trim); break;
                 case "horario": restauranteActual.setHorario(text); break;
                 case "direccion": restauranteActual.setDireccion(text); break;
                 case "localizacion": restauranteActual.setCoods(text); break;
