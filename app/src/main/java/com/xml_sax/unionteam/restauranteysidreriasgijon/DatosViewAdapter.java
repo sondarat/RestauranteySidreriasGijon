@@ -1,25 +1,36 @@
 package com.xml_sax.unionteam.restauranteysidreriasgijon;
 
-import android.graphics.drawable.Drawable;
+import android.graphics.Color;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.SimpleAdapter;
-
-import java.io.InputStream;
-import java.net.URL;
+import android.widget.TextView;
 
 public class DatosViewAdapter implements SimpleAdapter.ViewBinder {
 
 
     @Override
     public boolean setViewValue(View view, Object o, String s) {
-        if(view instanceof ImageView){
-            ImageView vieww = (ImageView) view;
+        if (view.getId() == R.id.Web){
+            TextView vieww = (TextView) view;
             try{
-                InputStream is = (InputStream) new URL((String)o).getContent();
-                vieww.setImageDrawable(Drawable.createFromStream(is, "foto"));
+                if(o==null) vieww.setText("");
+                else vieww.setText("Web");
+                vieww.setTextColor(Color.BLUE);
             }catch (Exception e){
-                vieww.setImageResource(R.mipmap.ico_error);
+                vieww.setText("N/D");
+            }
+            return true;
+        }
+        if (view.getId() == R.id.Email){
+            TextView vieww = (TextView) view;
+            try{
+                if(((String)o).equalsIgnoreCase("")) vieww.setText("");
+                else vieww.setText("Correo");
+                vieww.setTextColor(Color.GREEN);
+            }catch (Exception e){
+                vieww.setText("N/D");
             }
             return true;
         }

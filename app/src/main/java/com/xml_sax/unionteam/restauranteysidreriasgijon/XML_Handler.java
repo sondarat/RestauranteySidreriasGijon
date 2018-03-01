@@ -1,5 +1,7 @@
 package com.xml_sax.unionteam.restauranteysidreriasgijon;
 
+import android.text.Html;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -42,12 +44,13 @@ public class XML_Handler extends DefaultHandler {
         String text=texto.toString().replace("\n","");
         text = text.replaceAll("<.*>","");
         if(this.restauranteActual!=null){
+            String trim = text.replace("\n","").trim();
             switch (localName) {
                 case "foto": restauranteActual.setFoto(text); break;
                 case "nombre": restauranteActual.setNombre(text); break;
                 case "telefono": restauranteActual.setTlf(text); break;
-                case "correo-electronico": restauranteActual.setCorreo(text); break;
-                case "web": restauranteActual.setWeb(text); break;
+                case "correo-electronico": restauranteActual.setCorreo(trim); break;
+                case "web": restauranteActual.setWeb(trim); break;
                 case "horario": restauranteActual.setHorario(text); break;
                 case "direccion": restauranteActual.setDireccion(text); break;
                 case "localizacion": restauranteActual.setCoods(text); break;

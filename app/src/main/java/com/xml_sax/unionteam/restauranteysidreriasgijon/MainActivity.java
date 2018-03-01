@@ -64,6 +64,7 @@ public class MainActivity extends Activity{
     public void LanzaIntent(View view) {
         int idBoton=view.getId();
         Intent intento;
+        int pos=lista.getPositionForView((View) view.getParent());
         switch (idBoton){
             case R.id.Telefono:
                 intento = new Intent(Intent.ACTION_DIAL);
@@ -73,20 +74,19 @@ public class MainActivity extends Activity{
             case R.id.Email:
                 intento = new Intent(Intent.ACTION_SEND);
                 intento.setType("text/plain");
-                intento.putExtra(Intent.EXTRA_EMAIL, ((TextView)view).getText().toString());
+                intento.putExtra(Intent.EXTRA_EMAIL, (String)gestora.get(pos).get(MapRest.CORREO.toString()));
                 startActivity(Intent.createChooser(intento, "Send Email"));
                 break;
             case R.id.Direccion:
-                int culo = lista.getPositionForView((View) view.getParent());
-                intento = new Intent(Intent.ACTION_VIEW, (Uri)gestora.get(culo).get(MapRest.COORDS.toString()));
+                intento = new Intent(Intent.ACTION_VIEW, (Uri)gestora.get(pos).get(MapRest.COORDS.toString()));
                 intento.setPackage("com.google.android.apps.maps");
                 if (intento.resolveActivity(getPackageManager()) != null) {
                     startActivity(intento);
                 }
                 break;
             case R.id.Web:
-                Uri pagina = Uri.parse(((TextView)view).getText().toString());
-                intento = new Intent(Intent.ACTION_VIEW, pagina);
+                //Uri pagina = Uri.parse(((TextView)view).getText().toString());
+                intento = new Intent(Intent.ACTION_VIEW, (Uri)gestora.get(pos).get(MapRest.WEB.toString()));
                 if (intento.resolveActivity(getPackageManager()) != null) {
                     startActivity(intento);
                 }
