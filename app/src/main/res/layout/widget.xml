@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Fondo"
+    android:layout_marginLeft="15dp"
+    android:orientation="vertical"
+    android:id="@+id/aqui">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="-3dp">
+
+        <ImageView
+            android:layout_width="62dp"
+            android:layout_height="55dp"
+            android:layout_marginRight="15dp"
+            android:id="@+id/aquiVaImagenRestaurante"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="118dp"
+                android:layout_height="27dp"
+                android:text="ds"
+                android:textColor="@color/ColorLetras"
+                android:id="@+id/aquiVaNombreRestaurante"/>
+            <TextView
+                android:layout_width="118dp"
+                android:layout_height="27dp"
+                android:text="sd"
+                android:textColor="@color/ColorLetras"
+                android:id="@+id/aquiVaHorarioRestaurante"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp">
+        <Button
+            android:layout_width="62dp"
+            android:layout_height="40dp"
+            android:background="@color/Botones"
+            android:layout_marginRight="10dp"
+            android:drawableBottom="@drawable/telefono" />
+        <Button
+            android:layout_width="62dp"
+            android:layout_height="40dp"
+            android:background="@color/Botones"
+            android:layout_marginRight="10dp"
+            android:drawableBottom="@drawable/mail" />
+        <Button
+            android:layout_width="62dp"
+            android:layout_height="40dp"
+            android:background="@color/Botones"
+            android:drawableBottom="@drawable/localizacion"/>
+    </LinearLayout>
+</LinearLayout>
