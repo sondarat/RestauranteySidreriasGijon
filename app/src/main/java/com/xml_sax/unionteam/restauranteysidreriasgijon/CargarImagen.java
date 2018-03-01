@@ -22,19 +22,20 @@ public class CargarImagen extends AsyncTask<String, Void, Bitmap> {
 
     @Override
     protected Bitmap doInBackground(String... params) {
+        Bitmap imagen = null;
         try {
             URL imageUrl = new URL(params[0]);
             HttpURLConnection conn = (HttpURLConnection) imageUrl.openConnection();
             conn.connect();
-            Bitmap imagen = BitmapFactory.decodeStream(conn.getInputStream());
-            view.setImageBitmap(imagen);
+            imagen = BitmapFactory.decodeStream(conn.getInputStream());
         } catch (Exception e) {
-            view.setImageResource(R.mipmap.ico_error);
+
         }
-        return null;
+        return imagen;
     }
 
     @Override
     protected void onPostExecute(Bitmap bitmap) {
+        if(bitmap != null) view.setImageBitmap(bitmap);
     }
 }

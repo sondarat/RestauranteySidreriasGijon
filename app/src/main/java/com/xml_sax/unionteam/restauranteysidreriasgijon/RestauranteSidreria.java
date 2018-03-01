@@ -1,6 +1,8 @@
 package com.xml_sax.unionteam.restauranteysidreriasgijon;
 
 import android.net.Uri;
+import android.text.Spanned;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,9 +23,9 @@ public class RestauranteSidreria extends HashMap<String,Object>{
     public void setCorreo(String correo){
         this.put(MapRest.CORREO.toString(), correo.replace("\n",""));
     }
-    public void setWeb(String web){
+    public void setWeb(Spanned web){
         //this.put(MapRest.WEB.toString(), web);//v2 mas abajo
-        this.put(MapRest.WEB.toString(), Uri.parse(web));//Guarda la web lista para el intent
+        this.put(MapRest.WEB.toString(), web);//Guarda la web lista para el intent
     }
     public void setHorario(String horario){
         this.put(MapRest.HORARIO.toString(), horario);

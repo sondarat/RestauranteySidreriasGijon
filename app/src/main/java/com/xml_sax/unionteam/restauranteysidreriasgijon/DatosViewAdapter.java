@@ -1,25 +1,23 @@
 package com.xml_sax.unionteam.restauranteysidreriasgijon;
 
-import android.graphics.drawable.Drawable;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.SimpleAdapter;
-
-import java.io.InputStream;
-import java.net.URL;
+import android.widget.TextView;
 
 public class DatosViewAdapter implements SimpleAdapter.ViewBinder {
 
 
     @Override
     public boolean setViewValue(View view, Object o, String s) {
-        if(view instanceof ImageView){
-            ImageView vieww = (ImageView) view;
+        if(o instanceof Spanned){
+            TextView vieww = (TextView) view;
             try{
-                InputStream is = (InputStream) new URL((String)o).getContent();
-                vieww.setImageDrawable(Drawable.createFromStream(is, "foto"));
+                //vieww.setText((Spanned) o);
+                //vieww.setMovementMethod(LinkMovementMethod.getInstance());
             }catch (Exception e){
-                vieww.setImageResource(R.mipmap.ico_error);
+                vieww.setText("N/D");
             }
             return true;
         }
