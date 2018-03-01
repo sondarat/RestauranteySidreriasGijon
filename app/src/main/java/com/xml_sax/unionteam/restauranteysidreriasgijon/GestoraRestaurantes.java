@@ -5,9 +5,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.SimpleAdapter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class GestoraRestaurantes extends ArrayList<RestauranteSidreria>{
+public class GestoraRestaurantes extends ArrayList<RestauranteSidreria> implements Serializable{
 
     public static GestoraRestaurantes instance = null;
     protected GestoraRestaurantes(){}

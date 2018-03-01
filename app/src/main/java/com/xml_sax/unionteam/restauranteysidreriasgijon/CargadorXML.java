@@ -20,5 +20,6 @@ public class CargadorXML extends AsyncTask<String,Integer,Boolean> {
     @Override
     protected void onPostExecute(Boolean aBoolean) {
         activ.actualizarLista();
+        activ.GuardarSidrerias();
     }
 }

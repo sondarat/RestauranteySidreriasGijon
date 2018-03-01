@@ -12,12 +12,6 @@
         android:orientation="horizontal"
         android:layout_marginBottom="-3dp">
 
-        <ImageView
-            android:layout_width="62dp"
-            android:layout_height="55dp"
-            android:layout_marginRight="15dp"
-            android:id="@+id/aquiVaImagenRestaurante"/>
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,13 +19,11 @@
             <TextView
                 android:layout_width="118dp"
                 android:layout_height="27dp"
-                android:text="ds"
                 android:textColor="@color/ColorLetras"
                 android:id="@+id/aquiVaNombreRestaurante"/>
             <TextView
                 android:layout_width="118dp"
                 android:layout_height="27dp"
-                android:text="sd"
                 android:textColor="@color/ColorLetras"
                 android:id="@+id/aquiVaHorarioRestaurante"/>
         </LinearLayout>

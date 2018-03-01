@@ -10,6 +10,12 @@ import android.widget.ImageView;
 import android.widget.RemoteViews;
 import android.widget.TextView;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.Collections;
+
 /**
  * Implementation of App Widget functionality.
  */
@@ -17,25 +23,23 @@ public class Widget extends AppWidgetProvider {
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
-
-
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget);
         Intent intent= new Intent(context, LanzarDesdeWidget.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, appWidgetId,intent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
+        /*PendingIntent pendingIntent = PendingIntent.getActivity(context, appWidgetId,intent,
+                PendingIntent.FLAG_UPDATE_CURRENT);*/
 
-       /* int numero=(int)(Math.random()*resta.size());
-        RestauranteSidreria cogido=resta.get(numero);
-        views.setOnClickPendingIntent(R.id.aqui, pendingIntent);
+        //GestoraRestaurantes resta=leer();
+        //Collections.shuffle(resta);
+        //RestauranteSidreria cogido=resta.get(0);
+        //views.setOnClickPendingIntent(R.id.aqui, pendingIntent);
 
-       CharSequence nombre= (CharSequence) cogido.get(MapRest.NOMBRE);
-        views.setTextViewText(R.id.aquiVaNombreRestaurante,nombre);
+       //CharSequence nombre= (CharSequence) cogido.get(MapRest.NOMBRE.toString());
+       //CharSequence horario= (CharSequence) cogido.get(MapRest.HORARIO.toString());
 
-        CharSequence horario= (CharSequence) cogido.get(MapRest.HORARIO);
-        views.setTextViewText(R.id.aquiVaHorarioRestaurante,horario);
+        //views.setTextViewText(R.id.aquiVaNombreRestaurante,nombre);
+       // views.setTextViewText(R.id.aquiVaHorarioRestaurante,horario);
 
-        Bitmap foto= (Bitmap) cogido.get(MapRest.FOTO);
-        views.setImageViewBitmap(R.id.aquiVaImagenRestaurante,foto);*/
+
 
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
@@ -58,6 +62,17 @@ public class Widget extends AppWidgetProvider {
     @Override
     public void onDisabled(Context context) {
         // Enter relevant functionality for when the last widget is disabled
+    }
+
+    public GestoraRestaurantes leer(){
+        File fichero= new File("ListaRest.dat");
+        try {
+            //ObjectInputStream lector= new ObjectInputStream(ope("fichTest_mem_int.txt"));
+            //return  (GestoraRestaurantes) lector.readObject();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
 

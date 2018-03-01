@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.app.Dialog;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +17,16 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.Map;
 
 public class MainActivity extends Activity{
 
@@ -108,5 +120,25 @@ public class MainActivity extends Activity{
                 .setContentText(textoPrincipal);
         Notification notificacion=caracteristicas.build();
         notManager.notify(99, notificacion);
+    }
+    public void GuardarSidrerias(){
+        try {
+            final ArrayList<RestauranteSidreria> array= new ArrayList<>();
+            for(RestauranteSidreria res : gestora)
+            {
+                RestauranteSidreria resta=new RestauranteSidreria();
+                resta.put(MapRest.NOMBRE.toString(),res.get(MapRest.NOMBRE.toString()).toString());
+                resta.put(MapRest.HORARIO.toString(),res.get(MapRest.HORARIO.toString()).toString());
+                resta.put(MapRest.CORREO.toString(),res.get(MapRest.CORREO.toString()).toString());
+                resta.put(MapRest.TLF.toString(),res.get(MapRest.TLF.toString()).toString());
+                resta.put(MapRest.WEB.toString(),res.get(MapRest.WEB.toString()).toString());
+                resta.put(MapRest.DESCRIPCION.toString(),res.get(MapRest.DESCRIPCION.toString()).toString());
+                array.add(resta);
+            }
+            ObjectOutputStream escritor = new ObjectOutputStream(openFileOutput("ListaRest.dat",Context.MODE_PRIVATE));
+            escritor.writeObject(array);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
